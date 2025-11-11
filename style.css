@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Set a modern, clean font */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 40px;
+}
+
+/* Style the main heading */
+h1 {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Style the paragraph */
+p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Hero section layout */
+.hero {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 18vh;
+}
+
+/* Button styling */
+button {
+    background-color: #000;
+    color: #fff;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #333;
+}
