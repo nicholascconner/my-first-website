@@ -22,6 +22,7 @@
       <section class="hero" style="text-align:center; padding:48px 0;">
         <h1>Nick’s First Website</h1>
         <p>I am learning how coding and the web actually work.</p>
+        <button class="btn primary" id="openModal">Open Demo</button>
       </section>
     </div>
   </main>
@@ -34,6 +35,54 @@
     // tiny nicety to keep the footer current
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <!-- Modal -->
+<div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+  <div class="modal-backdrop" data-close></div>
+
+  <div class="modal-content" role="document">
+    <button class="modal-close" aria-label="Close modal" data-close>&times;</button>
+    <h2 id="modalTitle">Quick Modal</h2>
+    <p>This is a simple, accessible modal. You can put forms, text, or links here.</p>
+    <button class="btn" data-close>Close</button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const openBtn = document.getElementById('openModal');
+    const modal = document.getElementById('demoModal');
+    const closeSelectors = '[data-close]';
+    let lastFocus = null;
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+      // move focus into modal
+      const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      (firstFocusable || modal).focus();
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      modal.setAttribute('aria-hidden', 'true');
+      if (lastFocus) lastFocus.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target.matches(closeSelectors)) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  })();
+</script>
+
+
 </body>
 
 </html>
